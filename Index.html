@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Biju — Supply Chain & Logistics/Fintech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sidebar:#1D2E45;
+    --sidebar-soft:#B9C4D6;
+    --sidebar-line:rgba(255,255,255,0.14);
+    --bg:#FBFAF8;
+    --ink:#20242C;
+    --ink-soft:#565D6B;
+    --ink-faint:#8A909C;
+    --navy:#233B5E;
+    --accent:#C98A2B;
+    --rule:#E4E1DA;
+    --font-serif:'Source Serif 4', Georgia, serif;
+    --font-sans:'Source Sans 3', -apple-system, sans-serif;
+    --sidebar-w:300px;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; height:100%; }
+
+  body{
+    font-family:var(--font-sans);
+    color:var(--ink);
+    line-height:1.6;
+    background:var(--bg);
+  }
+
+  .layout{ display:flex; min-height:100vh; }
+
+  /* ---------- SIDEBAR ---------- */
+
+  .sidebar{
+    width:var(--sidebar-w);
+    flex-shrink:0;
+    background:var(--sidebar);
+    color:#fff;
+    padding:56px 34px;
+    position:sticky;
+    top:0;
+    align-self:flex-start;
+    height:100vh;
+    overflow-y:auto;
+  }
+
+  .sidebar .location{
+    font-size:0.82rem;
+    color:var(--sidebar-soft);
+    margin:0 0 20px;
+    letter-spacing:0.04em;
+  }
+
+  .sidebar h1{
+    font-family:var(--font-serif);
+    font-size:2rem;
+    font-weight:600;
+    margin:0 0 6px;
+    line-height:1.2;
+  }
+
+  .sidebar h1::after{
+    content:"";
+    display:block;
+    width:38px;
+    height:3px;
+    background:var(--accent);
+    margin-top:12px;
+    margin-bottom:18px;
+    border-radius:2px;
+  }
+
+  .sidebar .tagline{
+    font-size:0.95rem;
+    color:var(--sidebar-soft);
+    margin:0 0 30px;
+  }
+
+  .quick-facts{
+    list-style:none;
+    margin:0 0 32px;
+    padding:0;
+    border-top:1px solid var(--sidebar-line);
+    padding-top:24px;
+  }
+  .quick-facts li{
+    font-size:0.85rem;
+    color:#EDEFF3;
+    margin-bottom:14px;
+  }
+  .quick-facts li b{
+    color:var(--accent);
+    font-weight:700;
+  }
+
+  .sidebar nav{
+    border-top:1px solid var(--sidebar-line);
+    padding-top:24px;
+    margin-bottom:32px;
+  }
+  .sidebar nav a{
+    display:block;
+    font-size:0.85rem;
+    color:var(--sidebar-soft);
+    text-decoration:none;
+    padding:6px 0;
+    letter-spacing:0.02em;
+    transition:color 0.15s ease, padding-left 0.15s ease;
+  }
+  .sidebar nav a:hover{ color:var(--accent); padding-left:4px; }
+
+  .contact-links{
+    border-top:1px solid var(--sidebar-line);
+    padding-top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .contact-links a, .contact-links span{
+    font-size:0.83rem;
+    color:#EDEFF3;
+    text-decoration:none;
+  }
+  .contact-links a{ border-bottom:1px solid var(--sidebar-line); padding-bottom:2px; width:fit-content; }
+  .contact-links a:hover{ color:#fff; border-color:#fff; }
+
+  /* ---------- MAIN ---------- */
+
+  main{ flex:1; min-width:0; }
+
+  .section{
+    padding:72px 56px;
+    max-width:760px;
+    border-bottom:1px solid var(--rule);
+  }
+  .section:last-child{ border-bottom:none; }
+
+  .section-eyebrow{
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--navy);
+    margin:0 0 10px;
+  }
+
+  .section h2{
+    font-family:var(--font-serif);
+    font-size:1.7rem;
+    font-weight:600;
+    margin:0 0 22px;
+    color:var(--ink);
+    position:relative;
+    display:inline-block;
+  }
+  .section h2::after{
+    content:"";
+    display:block;
+    width:44px;
+    height:3px;
+    background:var(--accent);
+    border-radius:2px;
+    margin-top:10px;
+  }
+
+  .section > p.lede{
+    font-size:1.02rem;
+    color:var(--ink-soft);
+    margin:0;
+    max-width:60ch;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+
+  .job{
+    margin-bottom:22px;
+    background:#fff;
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    border-radius:6px;
+    padding:24px 26px;
+    box-shadow:0 1px 2px rgba(32,36,44,0.04);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .job:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(32,36,44,0.08);
+  }
+  .job:last-child{ margin-bottom:0; }
+  .job .when{
+    display:inline-block;
+    font-size:0.75rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--accent);
+    background:rgba(201,138,43,0.1);
+    padding:3px 10px;
+    border-radius:20px;
+    margin-bottom:10px;
+  }
+  .job h3{ font-size:1.05rem; font-weight:600; margin:0 0 2px; color:var(--ink); }
+  .job .org{ font-family:var(--font-serif); font-style:italic; font-size:0.92rem; color:var(--navy); margin:0 0 12px; }
+  .job p.desc{ margin:0; font-size:0.94rem; color:var(--ink-soft); max-width:58ch; }
+  .job p.desc b{ color:var(--ink); font-weight:600; }
+
+  .job.compact p{
+    margin:0;
+    font-size:0.94rem;
+    color:var(--ink-soft);
+  }
+  .job.compact b{ color:var(--ink); }
+
+  /* ---------- PROJECTS ---------- */
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .project-card{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-top:3px solid var(--accent);
+    border-radius:4px;
+    padding:24px 26px;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .project-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(32,36,44,0.08);
+  }
+  .project-card .when{ font-size:0.8rem; color:var(--ink-faint); margin-bottom:6px; }
+  .project-card h3{ font-size:1rem; font-weight:600; margin:0 0 8px; color:var(--ink); }
+  .project-card p{ margin:0; font-size:0.9rem; color:var(--ink-soft); }
+
+  @media (max-width:640px){
+    .project-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- EDUCATION ---------- */
+
+  .cred{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:2px 16px;
+    padding:16px 0; border-bottom:1px solid var(--rule);
+  }
+  .cred:first-child{ padding-top:0; }
+  .cred:last-child{ border-bottom:none; }
+  .cred-main .deg{ font-weight:600; font-size:0.98rem; color:var(--ink); display:block; }
+  .cred-main .org{ font-family:var(--font-serif); font-style:italic; font-size:0.9rem; color:var(--navy); }
+  .cred-date{ font-size:0.85rem; color:var(--ink-faint); white-space:nowrap; }
+
+  /* ---------- SKILLS ---------- */
+
+  .skill-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:24px;
+  }
+  .skill-cols h3{ font-size:0.9rem; font-weight:600; margin:0 0 8px; color:var(--navy); }
+  .skill-cols p{ margin:0; font-size:0.9rem; color:var(--ink-soft); }
+
+  @media (max-width:640px){
+    .skill-cols{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- CONTACT ---------- */
+
+  .contact-cta{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .contact-cta a{
+    display:inline-block;
+    padding:12px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    font-size:0.9rem;
+  }
+  .contact-cta a.primary{ background:var(--accent); color:#fff; }
+  .contact-cta a.secondary{ border:1px solid var(--navy); color:var(--navy); }
+
+  @media (max-width:860px){
+    .layout{ flex-direction:column; }
+    .sidebar{ position:relative; width:100%; height:auto; }
+    .section{ padding:52px 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .sidebar nav a, .project-card, .job{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <p class="location">Ottawa, ON</p>
+    <h1>Maria Biju</h1>
+    <p class="tagline">Supply Chain &amp; Logistics/Fintech professional bringing together finance, technology, and hands-on logistics experience.</p>
+
+    <ul class="quick-facts">
+      <li><b>Top 10%</b> productivity ranking at Amazon</li>
+      <li><b>24×</b> Efficiency Ace recognition</li>
+      <li><b>2</b> postgraduate certificates</li>
+      <li>B.Com foundation in business &amp; finance</li>
+    </ul>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Get in touch</a>
+    </nav>
+
+    <div class="contact-links">
+      <a href="mailto:mariabiju2000@gmail.com">mariabiju2000@gmail.com</a>
+      <a href="tel:5483339893">548-333-9893</a>
+      <a href="https://linkedin.com/in/mariabiju" target="_blank" rel="noopener">linkedin.com/in/mariabiju</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <section class="section" id="about">
+      <p class="section-eyebrow">About</p>
+      <h2>Logistics/Fintech experience, finance thinking</h2>
+      <p class="lede">I build my career at the intersection of business, technology, and operations, combining a Bachelor of Commerce with two postgraduate certificates in Financial Technology and Supply Chain Management, plus hands-on fulfillment, billing, and administrative experience. I care about accuracy, process, and doing the unglamorous work well.</p>
+    </section>
+
+    <section class="section" id="experience">
+      <p class="section-eyebrow">Experience</p>
+      <h2>Where I've worked</h2>
+
+      <div class="job">
+        <div class="when">June 2024 — Present</div>
+        <h3>Fulfillment Centre Warehouse Associate</h3>
+        <p class="org">Amazon, Ottawa, ON</p>
+        <p class="desc">At Amazon's fulfillment centre in Ottawa, I hold an overall <b>"Exceptional"</b> performance standing, working closely across teams to help meet daily operational targets in a high-volume environment.</p>
+      </div>
+
+      <div class="job">
+        <div class="when">Jun 2022 — Aug 2023</div>
+        <h3>Billing &amp; Invoicing Associate</h3>
+        <p class="org">VM Automobiles, Mumbai, India</p>
+        <p class="desc">At VM Automobiles in Mumbai, I prepared and reconciled invoices in Excel with a sharp focus on accuracy, resolving billing discrepancies directly with clients and vendors.</p>
+      </div>
+
+      <div class="job compact">
+        <div class="when">2021 — 2025</div>
+        <h3>Additional experience</h3>
+        <p class="org">Food service, retail, and healthcare administration</p>
+        <p><b>Algonquin College:</b> inventory &amp; supplier coordination · <b>McDonald's:</b> customer service &amp; stock replenishment · <b>Maa Kalawati Polyclinic:</b> front-desk administration &amp; medical supply procurement</p>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <p class="section-eyebrow">Projects</p>
+      <h2>Academic work I'm proud of</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="when">Jan — Apr 2024</div>
+          <h3>Business Plan Development</h3>
+          <p>Conducted market research and built a full business case, covering operational strategy, supply chain and resource planning, and financial considerations from concept to presentation.</p>
+        </div>
+        <div class="project-card">
+          <div class="when">Sep 2023 — Apr 2024</div>
+          <h3>Capstone Project</h3>
+          <p>Collaborated with a team of five to design and test a virtual tour application for the travel industry, contributing to planning logic and user experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <p class="section-eyebrow">Education</p>
+      <h2>Credentials</h2>
+      <div class="cred">
+        <div class="cred-main">
+          <span class="deg">Postgraduate Certificate, Supply Chain Management</span>
+          <span class="org">Algonquin College</span>
+        </div>
+        <div class="cred-date">2024–2025</div>
+      </div>
+      <div class="cred">
+        <div class="cred-main">
+          <span class="deg">Postgraduate Certificate, Financial Technology</span>
+          <span class="org">Conestoga College</span>
+        </div>
+        <div class="cred-date">2023–2024</div>
+      </div>
+      <div class="cred">
+        <div class="cred-main">
+          <span class="deg">Bachelor of Commerce</span>
+          <span class="org">Reena Mehta College, Mumbai</span>
+        </div>
+        <div class="cred-date">2018–2021</div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="section-eyebrow">Skills</p>
+      <h2>What I bring</h2>
+      <div class="skill-cols">
+        <div>
+          <h3>Supply Chain &amp; Logistics/Fintech</h3>
+          <p>Inventory management, order fulfillment, procurement, logistics coordination, process improvement</p>
+        </div>
+        <div>
+          <h3>Tools</h3>
+          <p>Excel, Outlook, Google Sheets, reporting &amp; data entry</p>
+        </div>
+        <div>
+          <h3>Approach</h3>
+          <p>Attention to detail, cross-functional collaboration, initiative, reliability under pressure</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <p class="section-eyebrow">Get in touch</p>
+      <h2>Let's talk</h2>
+      <p class="lede">Open to opportunities in Supply Chain, Procurement, and Logistics/Fintech. If something here looks like a fit, I'd love to hear from you.</p>
+      <div class="contact-cta">
+        <a class="primary" href="mailto:mariabiju2000@gmail.com">Email me</a>
+        <a class="secondary" href="https://linkedin.com/in/mariabiju" target="_blank" rel="noopener">View LinkedIn</a>
+      </div>
+      <p style="margin-top:28px; font-size:0.85rem; color:var(--ink-faint);">Ottawa, ON · 548-333-9893</p>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>
